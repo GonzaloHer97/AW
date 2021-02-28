@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/question.css">
+    <title>404</title>
+</head>
+
+<body>
+
+    <%- include("header", {nombre_user: nombre_user, imagen : img}) %>
+        <main class="contenedorPrincipal">
+
+            <h2>Preguntas sin respuestas</h2>
+
+            <div class="numPregBoton">
+                <div>
+                    <% if(question_list.length == 1){%>
+                        <%=question_list.length%> PREGUNTA
+                            <%}else{%>
+                                <%=question_list.length%> PREGUNTAS
+                                    <%}%>
+                </div>
+                <div>
+                    <a href="/questions/newQuestion"><button class="formular">Formular una pregunta</button></a>
+                </div>
+            </div>
+
+            <%question_list.forEach(function(question,id){%>
+                <article class="Pregunta">
+                    <div class="pIzq">
+                        <a href="/questions/infoQuestion/<%=question.id%>/<%=question.nombre%>"><b class="tituloPregunta"><%=question.titulo%></b></a>
+                        <div>
+                            <% if(question.texto.length > 150){%>
+                                <p class="descripcionPregunta">
+                                    <%=question.texto.substr(0,149)%>...
+                                </p>
+
+
+                                <%}else {%>
+                                    <p class="descripcionPregunta">
+                                        <%=question.texto%>
+                                    </p>
+                                    <%}%>
+                        </div>
+                        <div class="contTag">
+                            <form action="/questions/searchQuestionByTags" method="POST">
+                                <% question.tags.forEach(function(tag,id){%>
+                                    <%if(tag != null){%>
+                                        <input type="submit" name="buscar" value="<%=tag.substr(1,tag.length)%>" class="tag">
+                                        <%}%>
+                                            <%})%>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="pDer">
+                        <div class="fecha">
+                            <p>
+                                <%=question.fecha%>
+                            </p>
+                        </div>
+                        <div>
+                            <img class="imagenUsuario" src="/imagen/<%=question.imagen%>" alt="imagen del usuario">
+                        </div>
+                        <div class="nombre_user">
+                            <a href="/users/perfil/<%=question.nombre%>">
+                                <p>
+                                    <%=question.nombre%>
+                                </p>
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+                <%})%>
+
+
+        </main>
+
+</body>
+
+</html>

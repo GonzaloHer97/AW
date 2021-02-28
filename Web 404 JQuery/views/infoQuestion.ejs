@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/InfoQuestion.css">
+    <title>404</title>
+</head>
+
+<body>
+
+
+
+    <%- include("header", {nombre_user: nombre_user, imagen : img}) %>
+
+
+        <div class="contenedor">
+            <div class="pregunta">
+                <div class="infoUsuario">
+                    <div class="logoynombre">
+                        <img src="/imagen/<%=question.imagen%>" alt="" class="logoUsuario">
+
+                        <a href="/users/perfil/<%=question.nombre%>">
+                            <p class="nombreUsuario">
+                                <%=question.nombre%>
+                            </p>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="infoPregunta">
+
+                    <div class="tituloPregunta">
+                        <h1>
+                            <%=question.titulo%>
+                        </h1>
+                    </div>
+                    <div class="cuerpoPregunta">
+                        <%=question.texto%>
+                    </div>
+                    <div class="etiquetasPregunta">
+                        <form action="/questions/searchQuestionByTags" method="POST">
+                            <% question.tags.forEach(function(tag,id){%>
+                                <%if(tag != null){%>
+                                    <input type="submit" name="buscar" value="<%=tag.substr(1,tag.length)%>" class="tag">
+                                    <%}%>
+                                        <%})%>
+                        </form>
+                    </div>
+
+                    <div class="puntuacionPregunta">
+                        <form action="/questions/updateVotesQuestion/<%=question.id%>/<%=question.correo_user%>" method="POST" class="puntuacionPregunta">
+                            <button name="like" type="submit"><img src="/img/like.jpg" alt="" class="like"></button>
+                            <p class="puntuacion">
+                                <%=question.v_positivo%>
+                            </p>
+                            <button name="dislike" type="submit"><img src="/img/dislike.jpg" alt="" class="dislike"></button>
+                            <p class="puntuacion">
+                                <%=question.v_negativo%>
+                            </p>
+                        </form>
+                    </div>
+                    <div class="fechaRespuesta">
+                        Formulada el
+                        <%=question.fecha%>
+                    </div>
+                </div>
+
+            </div>
+            <div class="respuestas">
+                <h2>
+                    <% if(question.visitas == 1){%>
+                        <%=question.visitas%> VISITA
+                            <%}else{%>
+                                <%=question.visitas%> VISITAS
+                                    <%}%>
+                </h2>
+                <h2>
+                    <% if(answers.length > 1){%>
+                        <%=answers.length%> RESPUESTAS
+                            <%}else{%>
+                                <%=answers.length%> RESPUESTA
+                                    <%}%>
+                </h2>
+                <%answers.forEach(function(answer,id){%>
+                    <div class="respuesta">
+                        <div class="infoUsuario">
+                            <img src="/imagen/<%=answer.img_user%>" alt="" class="logoUsuario">
+                            <a href="/users/perfil/<%=answer.nombre_user%>">
+                                <p class="nombreUsuario">
+                                    <%=answer.nombre_user%>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="infoRespuesta">
+                            <div class="cuerpoPregunta">
+                                <%=answer.texto%>
+                            </div>
+
+                            <div class="puntuacionPregunta">
+                                <form action="/questions/updateVotesAnswer/<%=question.id%>/<%=answer.id_answer%>/<%=answer.correo_user%>" method="POST" class="puntuacionPregunta">
+                                    <button name="like" type="submit"><img src="/img/like.jpg" alt="" class="like"></button>
+                                    <p class="puntuacion">
+                                        <%=answer.v_positivo%>
+                                    </p>
+                                    <button name="dislike" type="submit"><img src="/img/dislike.jpg" alt="" class="dislike"></button>
+                                    <p class="puntuacion">
+                                        <%=answer.v_negativo%>
+                                    </p>
+                                </form>
+                            </div>
+                            <div class="fechaRespuesta">
+                                Escrita el
+                                <%=answer.fecha%>
+                            </div>
+                        </div>
+                    </div>
+                    <%})%>
+
+            </div>
+
+
+            <form action="/questions/addNewAnswer/<%=question.id%>" method="POST">
+                <div class="comentario">
+                    <div class="tuComentario">
+                        <p class="inicioComentario">
+                            Deja tu respuesta
+                        </p>
+                    </div>
+                    <div>
+                        <textarea type="text" class="input" name="respuesta" value="" required></textarea>
+                    </div>
+                </div>
+                <div class="botonComentar">
+                    <button type="submit" class="boton">Comentar</button>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

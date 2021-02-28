@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/messages.css">
+    <title>404</title>
+</head>
+
+<body>
+
+    <%- include("header", {nombre_user: nombre_user, imagen : img}) %>
+        <main class="contenedorPrincipal">
+            <h2>Mensajes recibidos</h2>
+
+            <%mensajes.forEach(function(mensaje){%>
+                <article class="mensaje">
+                    <div class="infoUsuario">
+                        <div>
+                            <img src="/imagen/<%=mensaje.img%>" alt="" class="imagenUsuario">
+                        </div>
+                        <div class="nombreUsuario">
+                            <a href="/users/perfil/<%=mensaje.nombre%>">
+                                <p>
+                                    <%=mensaje.nombre%>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="textoMess">
+                        <p>
+                            <%=mensaje.texto%>
+                        </p>
+                    </div>
+                    <div class="tiempoMess">
+                        <div class="fechaMess">
+                            <p>
+                                <%=mensaje.fecha%>
+                            </p>
+                        </div>
+                        <div class="horaMess">
+                            <%=mensaje.hora%>
+                        </div>
+                    </div>
+                    <div class="eliminarMess">
+                        <div class="divBoton">
+                            <form action="/users/deleteMessage/<%=mensaje.id%>" method="POST">
+                                <button class="botonEliminar" type="submit">Borrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+                <% })%>
+
+
+                    <div class="enviarMess">
+                        <a href="/users/sendMessages">
+                            <button class="enviar">Enviar Mensaje</button>
+                        </a>
+                    </div>
+        </main>
+
+</body>
+
+</html>

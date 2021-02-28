@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/allUsers.css">
+    <title>404</title>
+</head>
+
+<body>
+
+    <%- include("header", {nombre_user: nombre_user, imagen : img}) %>
+
+        <main class="contenedorPrincipal">
+
+            <div class="titulousuario">
+                <%=users.length%>
+                    <%if (users.length == 1){%>
+                        usuario
+                        <%}else{%>
+                            usuarios
+                            <%}%>
+            </div>
+
+            <form action="/users/searchUsers" method="POST">
+                <div class="buscar">
+                    <button type="submit" class="botonFiltrar">Filtrar</button>
+                    <input name="buscar" type="search" class="barraBuscadora" placeholder="Search...">
+                </div>
+            </form>
+            <div class="contenedorUsuarios">
+
+                <%users.forEach(function(user,id){%>
+                    <div class="user">
+
+                        <div class="imagen pad"><img class="imgcont" src="/imagen/<%=user.img%>" alt=""></div>
+
+                        <div class="nombre pad">
+                            <a href="/users/perfil/<%=user.nombre%>">
+                                <p>
+                                    <%=user.nombre%>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="reputacion pad">
+                            <p>
+                                <%=user.reputacion%>
+                            </p>
+                        </div>
+                        <div class="conTag pad">
+                            <%if(user.max!= null){%>
+                                <form action="/questions/searchQuestionByTags" method="POST">
+                                    <p>
+                                        <input type="submit" name="buscar" value="<%=user.max.substr(1, user.max.length)%>" class="tag">
+                                    </p>
+                                </form>
+                                <%}%>
+
+                        </div>
+                    </div>
+
+                    <%})%>
+
+            </div>
+        </main>
+</body>
+
+</html>

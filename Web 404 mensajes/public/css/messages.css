@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.contenedorPrincipal {
+    width: 70%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mensaje {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border: white 1px solid;
+}
+
+.infoUsuario {
+    width: 15%;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    cursor: pointer;
+    color: gold;
+}
+
+.imagenUsuario {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px
+}
+
+.nombreUsuario {
+    padding-bottom: 10px;
+}
+
+.textoMess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+}
+
+.tiempoMess {
+    display: flex;
+    flex-direction: row;
+    margin-left: 15px;
+}
+
+.horaMess {
+    margin-left: 15px;
+}
+
+.eliminarMess {
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+.enviarMess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    flex-grow: 4;
+}
+
+.texto {
+    width: 80%;
+    height: 20px;
+}
+
+.botonEliminar {
+    background-color: gold;
+    border-color: white;
+    padding: 5px;
+}
+
+.botonEliminar:hover {
+    box-shadow: 0 0 3px gold, 0 0 5px gold;
+}
+
+.enviar {
+    background-color: gold;
+    border-color: white;
+    padding: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.enviar:hover {
+    box-shadow: 0 0 3px gold, 0 0 5px gold;
+}

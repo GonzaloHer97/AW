@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/perfilUser.css">
+    <title>404</title>
+</head>
+
+<body>
+    <%- include("header", {nombre_user: nombre_user, imagen : img}) %>
+        <main class="contenedorPrincipal">
+
+
+            <div class="user">
+                <div class="usuarioBox">
+                    <div class="userImg"> <img class="userImagen" src="/imagen/<%=user.img%>" alt="fotoUsuario"></div>
+                    <div class="userInfo">
+                        <p class="colorInfo">
+                            <%=user.nombre%>
+                        </p>
+                        <br>
+                        <p class="colorInfo">Miembro desde
+                            <%=user.fecha%>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pateSuperior">
+                <div class="estadisticasBox">
+                    <p class="stats">Estadísticas</p>
+                    <div class="estadisticas">
+                        <div class="white">
+                            Preguntas <br><br>
+                            <%=user.preguntas%>
+                        </div>
+                        <div class="white">
+                            Reputación
+                            <br><br>
+                            <%=user.reputacion%>
+                        </div>
+                        <div class="white">
+                            Respuestas <br><br>
+                            <%=user.respuestas%>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="stats">Medallas</div>
+
+            <div class="medallasBox">
+
+                <div class="medallaBox bronceBox">
+
+                    <div class="num numBronce">
+                        <p>BRONCE</p>
+                        <p class="numMedallas">
+                            <%=user.medallasBronce%>
+                        </p>
+                    </div>
+                    <div class="medallas">
+                        <%user.bronce.forEach(function(medalla,id){%>
+                            <div class="medalla bronce">
+                                <%=medalla.nombre%>
+                                    <%if(medalla.num > 1){%>
+                                        +
+                                        <%=medalla.num%>
+                                            <%}%>
+                            </div>
+
+                            <%})%>
+                    </div>
+                </div>
+
+                <div class="medallaBox plataBox">
+                    <div class="num numPlata">
+                        <p>PLATA</p>
+                        <p class="numMedallas">
+                            <%=user.medallasPlata%>
+                        </p>
+                    </div>
+                    <div class="medallas">
+                        <%user.plata.forEach(function(medalla,id){%>
+                            <div class="medalla plata">
+                                <%=medalla.nombre%>
+                                    <%if(medalla.num > 1){%>
+                                        +
+                                        <%=medalla.num%>
+                                            <%}%>
+                            </div>
+
+                            <%})%>
+                    </div>
+                </div>
+
+                <div class="medallaBox oroBox">
+
+                    <div class="num numOro">
+                        <p>ORO</p>
+                        <p class="numMedallas">
+                            <%=user.medallasOro%>
+                        </p>
+                    </div>
+                    <div class="medallas">
+                        <%user.oro.forEach(function(medalla,id){%>
+                            <div class="medalla oro">
+                                <%=medalla.nombre%>
+                                    <%if(medalla.num > 1){%>
+                                        +
+                                        <%=medalla.num%>
+                                            <%}%>
+                            </div>
+
+                            <%})%>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+
+</body>
+
+</html>

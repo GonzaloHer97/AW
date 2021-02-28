@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/newQuestion.css">
+    <title>Formular Pregunta</title>
+</head>
+
+<body>
+
+    <%- include("header", {nombre_user: nombre_user, imagen : img}) %>
+
+        <div class="contenedor">
+            <h1>
+                Formular una pregunta
+            </h1>
+            <form action="/questions/addNewQuestion" method="POST">
+                <div class="titulo_pregunta ">
+                    <p class="negrita ">
+                        Titulo
+                    </p>
+                    <p>
+                        Procura que el título sea una pregunta o la duda que quieras resolver
+                    </p>
+                    <input type="text " class="inputTitulo " name="titulo" placeholder="Ejemplo: ¿Cómo resuelvo este problema? " required>
+                </div>
+
+                <div class="cuerpo ">
+                    <p class="negrita ">
+                        Cuerpo
+                    </p>
+                    <textarea type="text " class="inputCuerpo " name="texto" required></textarea>
+                </div>
+
+                <div class="etiquetas ">
+                    <p class="negrita ">
+                        Etiquetas
+                    </p>
+                    <p>
+                        Escribe etiquetas relacionadas con el tema de la pregunta y no repitas las etiquetas
+                    </p>
+                    <input type="text " class="inputEtiqueta " name="etiquetas" placeholder="Ejemplo: @java@c++ ">
+                </div>
+                <div class="publicar ">
+                    <button type="submit " class="botonPublicar ">Aceptar</button>
+                </div>
+
+            </form>
+        </div>
+</body>
+
+</html>

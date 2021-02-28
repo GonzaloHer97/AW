@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(36, 35, 35);
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 70px;
+    margin-top: 15px;
+}
+
+.contenedor {
+    text-align: center;
+}
+
+
+/*input {
+    margin-bottom: 15px;
+}*/
+
+.negrita {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.titulo_pregunta {
+    text-align: left;
+    width: 50%;
+    padding-bottom: 15px;
+    margin: 0px auto;
+}
+
+.inputTitulo {
+    margin-top: 2px;
+    width: 100%;
+    height: 20px;
+}
+
+.cuerpo {
+    text-align: left;
+    width: 50%;
+    padding-bottom: 15px;
+    margin: 0px auto;
+}
+
+.inputCuerpo {
+    margin-top: 2px;
+    width: 100%;
+    height: 200px;
+}
+
+.etiquetas {
+    text-align: left;
+    width: 50%;
+    padding-bottom: 20px;
+    margin: 0px auto;
+}
+
+.inputEtiqueta {
+    margin-top: 2px;
+    width: 100%;
+    height: 20px;
+}
+
+.botonPublicar {
+    width: 200px;
+    height: 25px;
+    background-color: gold;
+}
+
+.tag {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    margin-right: 5px;
+    color: white;
+    background-color: black;
+    border: solid 1px gold;
+}
+
+.tag:hover {
+    cursor: pointer;
+    box-shadow: 0 0 3px gold, 0 0 5px gold;
+}
+
+.contTag {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+}

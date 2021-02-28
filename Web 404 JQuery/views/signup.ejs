@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signup.css">
+    <title>404</title>
+</head>
+
+<body>
+    <div class="cabecera">
+        <h1>
+            404
+        </h1>
+    </div>
+
+    <div class="registro">
+
+        <form action="/signup_user" method="POST" enctype="multipart/form-data">
+
+            <div class="inputs">
+                <p class="texto">
+                    Correo*
+                </p>
+                <input type="text" class="input" name="correo" required>
+                <p class="texto">
+                    Contraseña*
+                </p>
+                <input type="password" class="input" name="password" required>
+                <p class="texto">
+                    Confirmar contraseña
+                </p>
+                <input type="password" class="input" name="password_again" required>
+                <p class="texto">
+                    Nombre de usuario
+                </p>
+                <input type="text" class="input" name="userName" required>
+                <p class="texto">
+                    Imagen de perfil
+                </p>
+                <input type="file" class="input" src="" name="foto" accept="image/png, .jpeg, .jpg">
+
+                <%if(errorMsg != null){%>
+
+                    <ul>
+                        <%errorMsg.forEach(function(error){%>
+                            <li style="color: red;">
+                                <%= error.msg %>
+                            </li>
+                            <% }); %>
+
+                    </ul>
+
+                    <%}%>
+            </div>
+
+            <div class="botones">
+                <button type="submit" class="boton">Crear Cuenta</button>
+            </div>
+
+        </form>
+
+        <div class="botones">
+            <a href="/index"><button type="boton" class="boton">Iniciar sesión</button></a>
+        </div>
+
+    </div>
+</body>
+
+</html>

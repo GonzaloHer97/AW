@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <title>Pagina principal</title>
+</head>
+
+<body>
+    <header>
+        <div class="cabecera">
+            <div class="botones">
+                <a href="/questions"><button type="boton " class="boton ">Preguntas</button></a>
+                <a href="/questions/withoutAnswers"><button type="boton " class="boton ">Sin responder</button></a>
+                <a href="/users"><button type="boton " class="boton ">Usuarios</button></a>
+                <a href="/users/messages"><button type="boton " class="boton ">Mensajes</button></a>
+            </div>
+            <div class="titulo ">
+                404
+            </div>
+            <div class="usuario ">
+                <div class="imagen ">
+                    <img class="usuarioImagen " src="/imagen/<%=imagen%>">
+                    <BR></BR>
+                    <a href="/users/perfil/<%=nombre_user%>" class="nombreUser">
+                        <%=nombre_user%>
+                    </a>
+                </div>
+                <div class="cerrarSesion">
+                    <a href="/logout"><button type="boton" class="boton logout">Cerrar sesión</button></a>
+                </div>
+            </div>
+        </div>
+        <form action="/questions/searchQuestionByString" method="POST">
+            <div class="buscar">
+                <button type="submit" class="botonBuscar">Buscar</button>
+                <input name="buscar" type="search" class="barraBuscadora" placeholder="Search...">
+            </div>
+        </form>
+
+    </header>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>404</title>
+</head>
+
+<body>
+    <div class="cabecera">
+        <h1>
+            404
+        </h1>
+    </div>
+
+    <div class="registro">
+        <form action="/login" method="POST">
+            <div class="inputs">
+
+                <p class="texto">
+                    Correo*
+                </p>
+                <input type="text" class="input" name="correo" required>
+                <p class="texto">
+                    Contraseña*
+                </p>
+                <input type="password" class="input" name="password" required>
+                <%if(errorMsg){%>
+                    <p id="mensajeError" style="color: white;">
+                        <%=errorMsg%>
+                    </p>
+                    <%}%>
+            </div>
+
+            <div class="botones">
+
+                <a href=""><button type="submit" class="boton">Iniciar sesión</button></a>
+                <br>
+                <a href="/signup"><button type="button" class="boton">Crear Cuenta</button></a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

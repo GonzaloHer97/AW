@@ -1,0 +1,174 @@
+body {
+    background-color: rgb(36, 35, 35);
+    ;
+}
+
+.contenedorPrincipal {
+    width: 50%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+.pateSuperior {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.user {
+    height: 200px;
+}
+
+.usuarioBox {
+    background-color: rgba(128, 128, 128, 0.61);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-content: center;
+}
+
+.userImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+.userImagen {
+    margin-top: 2px;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width: 60%;
+}
+
+.colorInfo {
+    color: gold;
+    font-size: x-large;
+}
+
+.estadisticasBox {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(253, 227, 78);
+    color: black;
+    text-align: center;
+    border: midnightblue 1px solid;
+    width: 100%;
+    height: 50px;
+    font-size: x-large;
+}
+
+.estadisticas {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.white {
+    color: white;
+    flex-grow: 1;
+    font-size: large;
+}
+
+.numMedallas {
+    font-weight: bolder;
+}
+
+.medallasBox {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.medalla {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    width: 200px;
+    height: 30px;
+    background-color: black;
+    margin-top: 20px;
+    border-radius: 5%;
+}
+
+.medallas {
+    margin-bottom: 10px;
+}
+
+.num {
+    position: relative;
+    top: 10%;
+    width: 70%;
+    border: black 1px solid;
+    font-size: large;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.medallaBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    border-radius: 5%;
+}
+
+.bronceBox {
+    border: solid 2px rgb(173, 96, 7);
+}
+
+.numBronce {
+    background-color: rgb(173, 96, 7);
+}
+
+.bronce {
+    color: rgb(173, 96, 7);
+}
+
+.plataBox {
+    border: solid 2px silver;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.numPlata {
+    background-color: silver;
+}
+
+.plata {
+    color: silver;
+}
+
+.oroBox {
+    border: solid 2px rgb(253, 227, 78);
+}
+
+.numOro {
+    background-color: rgb(253, 227, 78);
+}
+
+.oro {
+    color: rgb(253, 227, 78);
+}

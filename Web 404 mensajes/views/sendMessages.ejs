@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/messages.css">
+    <title>404</title>
+</head>
+
+<body>
+
+    <%- include("header", {nombre_user: nombre_user, imagen : img}) %>
+        <main class="contenedorPrincipal">
+            <h2>Enviar mensajes</h2>
+            <%users.forEach(function(user){%>
+                <article class="mensaje">
+                    <div class="infoUsuario">
+                        <div>
+                            <img src="/imagen/<%=user.img%>" alt="" class="imagenUsuario">
+                        </div>
+                        <div class="nombreUsuario">
+                            <a href="/users/perfil/<%=user.nombre%>">
+                                <p>
+                                    <%=user.nombre%>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <form action="/users/sendMessagesProcess/<%=nombre_user%>/<%=user.email%>" method="POST">
+                        <div class="textoMess">
+                            <input type="text" class="texto" name="texto" required></input>
+                        </div>
+                        <div class="eliminarMess">
+                            <div class="divBoton">
+                                <button class="botonEliminar" type="submit">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </article>
+
+                <% })%>
+        </main>
+
+</body>
+
+</html>
