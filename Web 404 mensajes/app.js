@@ -45,11 +45,11 @@ app.use(middlewareSession);
 
 
 // Arrancar el servidor
-app.listen(config.port, function(err) {
+app.listen(process.env.PORT, function(err) {
     if (err) {
         console.log("ERROR al iniciar el servidor");
     } else {
-        console.log(`Servidor arrancado en el puerto ${config.port}`);
+        console.log(`Servidor arrancado en el puerto ${process.env.PORT}`);
     }
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
