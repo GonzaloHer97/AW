@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `answer` (
   `id_respuesta` int(11) NOT NULL,
   `answer_texto` text NOT NULL,
-  `fecha` date NOT NULL DEFAULT current_timestamp(),
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
   `v_positivo` int(11) NOT NULL,
   `v_negativo` int(11) NOT NULL,
   `answer_correo_user` varchar(100) NOT NULL,
@@ -50,10 +50,7 @@ INSERT INTO `answer` (`id_respuesta`, `answer_texto`, `fecha`, `v_positivo`, `v_
 --
 -- Disparadores `answer`
 --
-DELIMITER $$
-CREATE TRIGGER `updateRespuestasUser` AFTER INSERT ON `answer` FOR EACH ROW UPDATE user SET respuestas = respuestas + 1 WHERE email = NEW.answer_correo_user
-$$
-DELIMITER ;
+;
 
 -- --------------------------------------------------------
 
@@ -90,10 +87,6 @@ INSERT INTO `join_user_question` (`join_user_question_correo_user`, `join_user_q
 --
 -- Disparadores `join_user_question`
 --
-DELIMITER $$
-CREATE TRIGGER `updateVisitsQuestion` AFTER INSERT ON `join_user_question` FOR EACH ROW UPDATE question SET visitas = visitas + 1 WHERE id_pregunta = NEW.join_user_question_id_pregunta
-$$
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -205,10 +198,6 @@ INSERT INTO `question` (`id_pregunta`, `titulo`, `texto`, `fecha`, `correo_user`
 --
 -- Disparadores `question`
 --
-DELIMITER $$
-CREATE TRIGGER `updatePreguntasUser` AFTER INSERT ON `question` FOR EACH ROW UPDATE user SET preguntas = preguntas + 1 WHERE email = NEW.correo_user
-$$
-DELIMITER ;
 
 -- --------------------------------------------------------
 
